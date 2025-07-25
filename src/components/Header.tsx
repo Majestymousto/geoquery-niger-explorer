@@ -73,7 +73,9 @@ const Header = () => {
             <Button variant="ghost" size="sm" asChild>
               <Link to="/results">Résultats</Link>
             </Button>
-            <Button variant="ghost" size="sm">À propos</Button>
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/about">À propos</Link>
+            </Button>
           </nav>
         </div>
       </div>
@@ -106,7 +108,9 @@ const Header = () => {
               <Button variant="ghost" className="justify-start" asChild>
                 <Link to="/results">Résultats</Link>
               </Button>
-              <Button variant="ghost" className="justify-start">À propos</Button>
+              <Button variant="ghost" className="justify-start" asChild>
+                <Link to="/about">À propos</Link>
+              </Button>
             </nav>
           </div>
         </div>

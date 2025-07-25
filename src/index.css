@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design system inspired by Niger's colors and landscapes */
 
 @layer base {
   :root {
+    /* Niger-inspired color palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 18 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 18 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 18 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Rich Niger green */
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Warm Niger orange */
+    --secondary: 35 85% 65%;
+    --secondary-foreground: 18 15% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent: Bright Niger yellow */
+    --accent: 52 98% 60%;
+    --accent-foreground: 18 15% 15%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Muted: Sahel beige */
+    --muted: 45 25% 94%;
+    --muted-foreground: 18 15% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 45 25% 88%;
+    --input: 45 25% 88%;
+    --ring: 142 76% 36%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom Niger-themed colors */
+    --niger-green: 142 76% 36%;
+    --niger-orange: 35 85% 65%;
+    --niger-yellow: 52 98% 60%;
+    --sahel-sand: 45 45% 85%;
+    --desert-gold: 42 88% 75%;
+
+    /* Gradients */
+    --gradient-niger: linear-gradient(135deg, hsl(var(--niger-green)), hsl(var(--niger-orange)));
+    --gradient-sahel: linear-gradient(180deg, hsl(var(--sahel-sand)), hsl(var(--desert-gold)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--niger-orange)), hsl(var(--niger-yellow)));
+
+    /* Shadows with Niger colors */
+    --shadow-green: 0 10px 30px -10px hsl(var(--niger-green) / 0.3);
+    --shadow-warm: 0 20px 40px -10px hsl(var(--niger-orange) / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +79,36 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 18 25% 8%;
+    --foreground: 45 25% 94%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 18 25% 10%;
+    --card-foreground: 45 25% 94%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 18 25% 10%;
+    --popover-foreground: 45 25% 94%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Niger green adjusted for dark mode */
+    --primary: 142 65% 45%;
+    --primary-foreground: 18 25% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Niger orange adjusted for dark mode */
+    --secondary: 35 75% 55%;
+    --secondary-foreground: 18 25% 8%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Niger yellow adjusted for dark mode */
+    --accent: 52 88% 65%;
+    --accent-foreground: 18 25% 8%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --muted: 18 15% 15%;
+    --muted-foreground: 45 15% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 45 25% 94%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 18 15% 20%;
+    --input: 18 15% 20%;
+    --ring: 142 65% 45%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

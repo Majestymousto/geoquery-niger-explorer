@@ -18,6 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Niger-themed variants
+        niger: "bg-gradient-to-r from-niger-green to-niger-orange text-primary-foreground hover:shadow-lg hover:scale-[1.02] transition-all duration-300",
+        sunset: "bg-gradient-to-r from-niger-orange to-niger-yellow text-accent-foreground hover:shadow-warm transition-all duration-300",
+        sahel: "bg-sahel-sand text-foreground border border-desert-gold hover:bg-desert-gold transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

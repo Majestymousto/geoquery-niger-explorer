@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Niger-themed colors
+				'niger-green': 'hsl(var(--niger-green))',
+				'niger-orange': 'hsl(var(--niger-orange))',
+				'niger-yellow': 'hsl(var(--niger-yellow))',
+				'sahel-sand': 'hsl(var(--sahel-sand))',
+				'desert-gold': 'hsl(var(--desert-gold))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

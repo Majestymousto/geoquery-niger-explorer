@@ -68,16 +68,10 @@ const Header = () => {
               <Link to="/">Accueil</Link>
             </Button>
             <Button variant="ghost" size="sm" asChild>
-              <Link to="/explorer">Explorer</Link>
+              <Link to="/dashboard">Indicateurs</Link>
             </Button>
             <Button variant="ghost" size="sm" asChild>
-              <Link to="/datasets">Jeux de données</Link>
-            </Button>
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/data-stories">Data Stories</Link>
-            </Button>
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/dashboard">Tableau de bord</Link>
+              <Link to="/results">Résultats</Link>
             </Button>
             <Button variant="ghost" size="sm" asChild>
               <Link to="/about">À propos</Link>
@@ -109,16 +103,10 @@ const Header = () => {
                 <Link to="/">Accueil</Link>
               </Button>
               <Button variant="ghost" className="justify-start" asChild>
-                <Link to="/explorer">Explorer</Link>
+                <Link to="/dashboard">Indicateurs</Link>
               </Button>
               <Button variant="ghost" className="justify-start" asChild>
-                <Link to="/datasets">Jeux de données</Link>
-              </Button>
-              <Button variant="ghost" className="justify-start" asChild>
-                <Link to="/data-stories">Data Stories</Link>
-              </Button>
-              <Button variant="ghost" className="justify-start" asChild>
-                <Link to="/dashboard">Tableau de bord</Link>
+                <Link to="/results">Résultats</Link>
               </Button>
               <Button variant="ghost" className="justify-start" asChild>
                 <Link to="/about">À propos</Link>

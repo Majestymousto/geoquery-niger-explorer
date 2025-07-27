@@ -16,17 +16,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 18 15% 15%;
 
-    /* Primary: Vert vif africain #21b347 */
-    --primary: 140 71% 42%;
+    /* Primary: Rich Niger green */
+    --primary: 142 76% 36%;
     --primary-foreground: 0 0% 98%;
 
-    /* Secondary: Jaune sable #f2c94c */
-    --secondary: 45 85% 63%;
+    /* Secondary: Warm Niger orange */
+    --secondary: 35 85% 65%;
     --secondary-foreground: 18 15% 15%;
 
-    /* Accent: Terre cuite #d35400 */
-    --accent: 14 85% 51%;
-    --accent-foreground: 0 0% 98%;
+    /* Accent: Bright Niger yellow */
+    --accent: 52 98% 60%;
+    --accent-foreground: 18 15% 15%;
 
     /* Muted: Sahel beige */
     --muted: 45 25% 94%;
@@ -41,26 +41,21 @@
 
     --radius: 0.75rem;
 
-    /* Couleurs africaines inspirées du Niger */
-    --africa-green: 140 71% 42%; /* #21b347 */
-    --sand-yellow: 45 85% 63%; /* #f2c94c */
-    --earth-orange: 14 85% 51%; /* #d35400 */
+    /* Custom Niger-themed colors */
+    --niger-green: 142 76% 36%;
+    --niger-orange: 35 85% 65%;
+    --niger-yellow: 52 98% 60%;
     --sahel-sand: 45 45% 85%;
     --desert-gold: 42 88% 75%;
-    --contrast-dark: 0 0% 20%; /* Gris foncé pour contraste */
 
-    /* Gradients africains */
-    --gradient-africa: linear-gradient(135deg, hsl(var(--africa-green)), hsl(var(--sand-yellow)));
+    /* Gradients */
+    --gradient-niger: linear-gradient(135deg, hsl(var(--niger-green)), hsl(var(--niger-orange)));
     --gradient-sahel: linear-gradient(180deg, hsl(var(--sahel-sand)), hsl(var(--desert-gold)));
-    --gradient-sunset: linear-gradient(135deg, hsl(var(--earth-orange)), hsl(var(--sand-yellow)));
-    --gradient-savane: linear-gradient(45deg, hsl(var(--africa-green)), hsl(var(--earth-orange)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--niger-orange)), hsl(var(--niger-yellow)));
 
-    /* Ombres avec couleurs africaines */
-    --shadow-africa: 0 10px 30px -10px hsl(var(--africa-green) / 0.3);
-    --shadow-warm: 0 20px 40px -10px hsl(var(--earth-orange) / 0.2);
-    
-    /* Motif traditionnel africain en arrière-plan léger */
-    --pattern-african: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f2c94c' fill-opacity='0.02'%3E%3Cpath d='M30 30c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm12 0c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    /* Shadows with Niger colors */
+    --shadow-green: 0 10px 30px -10px hsl(var(--niger-green) / 0.3);
+    --shadow-warm: 0 20px 40px -10px hsl(var(--niger-orange) / 0.2);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -132,61 +127,5 @@
 
   body {
     @apply bg-background text-foreground;
-    background-image: var(--pattern-african);
-    font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-
-  /* Classes utilitaires pour les motifs africains */
-  .bg-pattern-african {
-    background-image: var(--pattern-african);
-  }
-
-  .gradient-africa {
-    background: var(--gradient-africa);
-  }
-
-  .gradient-sahel {
-    background: var(--gradient-sahel);
-  }
-
-  .gradient-sunset {
-    background: var(--gradient-sunset);
-  }
-
-  .gradient-savane {
-    background: var(--gradient-savane);
-  }
-
-  /* Animations douces pour les interactions */
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
-
-  .transition-bounce {
-    transition: var(--transition-bounce);
-  }
-
-  /* Styles pour les cartes avec thème africain */
-  .card-africa {
-    @apply bg-card border rounded-lg transition-smooth;
-    box-shadow: var(--shadow-africa);
-  }
-
-  .card-africa:hover {
-    @apply transform -translate-y-1;
-    box-shadow: var(--shadow-warm);
-  }
-
-  /* Styles pour les sections de données */
-  .data-section {
-    @apply rounded-lg p-6 transition-smooth;
-    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
-    border: 1px solid hsl(var(--border));
-  }
-
-  /* Styles pour les graphiques */
-  .chart-container {
-    @apply bg-card rounded-lg p-4 shadow-sm border;
-    background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)/50) 100%);
   }
 }

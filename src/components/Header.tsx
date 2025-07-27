@@ -71,6 +71,9 @@ const Header = () => {
               <Link to="/explorer">Explorer</Link>
             </Button>
             <Button variant="ghost" size="sm" asChild>
+              <Link to="/datasets">Jeux de données</Link>
+            </Button>
+            <Button variant="ghost" size="sm" asChild>
               <Link to="/data-stories">Data Stories</Link>
             </Button>
             <Button variant="ghost" size="sm" asChild>
@@ -107,6 +110,9 @@ const Header = () => {
               </Button>
               <Button variant="ghost" className="justify-start" asChild>
                 <Link to="/explorer">Explorer</Link>
+              </Button>
+              <Button variant="ghost" className="justify-start" asChild>
+                <Link to="/datasets">Jeux de données</Link>
               </Button>
               <Button variant="ghost" className="justify-start" asChild>
                 <Link to="/data-stories">Data Stories</Link>

@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { Search, BarChart3, Map, Users, TrendingUp, MapPin } from "lucide-react";
+import { Search, BarChart3, Map, Users, TrendingUp, MapPin, GraduationCap, Heart, Wheat, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
+import heroImage from "@/assets/niger-hero.jpg";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   const quickQueries = [
     "Population de Niamey 2023",
@@ -37,30 +40,39 @@ const Home = () => {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      // Navigation vers la page de résultats
-      console.log("Recherche:", searchQuery);
+      navigate('/results?q=' + encodeURIComponent(searchQuery));
     }
+  };
+
+  const handleQuickSearch = (query: string) => {
+    setSearchQuery(query);
+    navigate('/results?q=' + encodeURIComponent(query));
   };
 
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-niger-green via-niger-orange to-niger-yellow">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative overflow-hidden gradient-africa bg-pattern-african">
+        <div className="absolute inset-0 bg-black/20" />
+        <img 
+          src={heroImage} 
+          alt="Paysage du Niger" 
+          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40"
+        />
         
         {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
         
         <div className="relative container mx-auto px-4 py-20 lg:py-32">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              Explorez le Niger avec
-              <span className="block text-niger-yellow">GeoQuery Niger</span>
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
+              Géoportail Intelligent du
+              <span className="block text-sand-yellow drop-shadow-lg">Niger</span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
-              Posez vos questions en français et obtenez des réponses précises avec des cartes, 
-              graphiques et analyses des données du Niger.
+            <p className="text-xl lg:text-2xl mb-8 text-white/90 max-w-3xl mx-auto animate-fade-in">
+              Explorez les données ouvertes du Niger avec des visualisations interactives, 
+              des cartes dynamiques et des analyses approfondies alimentées par l'IA.
             </p>
             
             {/* Barre de recherche principale */}
@@ -78,22 +90,58 @@ const Home = () => {
               </div>
               <Button 
                 onClick={handleSearch}
-                variant="niger"
                 size="lg"
-                className="mt-4 px-8 py-3 text-lg font-semibold"
+                className="mt-4 px-8 py-3 text-lg font-semibold bg-white text-primary hover:bg-white/90 shadow-lg transition-smooth"
               >
+                <Search className="h-5 w-5 mr-2" />
                 Rechercher
               </Button>
             </div>
 
             {/* Questions rapides */}
-            <div className="flex flex-wrap gap-2 justify-center">
-              {quickQueries.slice(0, 4).map((query, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+              <Button 
+                onClick={() => handleQuickSearch("population")} 
+                variant="secondary" 
+                className="p-4 h-auto flex-col items-center bg-white/10 hover:bg-white/20 border-white/20 transition-smooth text-white hover:text-white"
+              >
+                <Users className="h-6 w-6 mb-2" />
+                <span>Population</span>
+              </Button>
+              <Button 
+                onClick={() => handleQuickSearch("éducation")} 
+                variant="secondary"
+                className="p-4 h-auto flex-col items-center bg-white/10 hover:bg-white/20 border-white/20 transition-smooth text-white hover:text-white"
+              >
+                <GraduationCap className="h-6 w-6 mb-2" />
+                <span>Éducation</span>
+              </Button>
+              <Button 
+                onClick={() => handleQuickSearch("santé")} 
+                variant="secondary"
+                className="p-4 h-auto flex-col items-center bg-white/10 hover:bg-white/20 border-white/20 transition-smooth text-white hover:text-white"
+              >
+                <Heart className="h-6 w-6 mb-2" />
+                <span>Santé</span>
+              </Button>
+              <Button 
+                onClick={() => handleQuickSearch("agriculture")} 
+                variant="secondary"
+                className="p-4 h-auto flex-col items-center bg-white/10 hover:bg-white/20 border-white/20 transition-smooth text-white hover:text-white"
+              >
+                <Wheat className="h-6 w-6 mb-2" />
+                <span>Agriculture</span>
+              </Button>
+            </div>
+
+            {/* Suggestions rapides */}
+            <div className="flex flex-wrap gap-2 justify-center mt-6">
+              {quickQueries.slice(0, 3).map((query, index) => (
                 <Badge
                   key={index}
                   variant="secondary"
-                  className="bg-white/20 text-white border-white/30 hover:bg-white/30 cursor-pointer transition-colors px-4 py-2"
-                  onClick={() => setSearchQuery(query)}
+                  className="bg-white/20 text-white border-white/30 hover:bg-white/30 cursor-pointer transition-smooth px-4 py-2"
+                  onClick={() => handleQuickSearch(query)}
                 >
                   {query}
                 </Badge>
@@ -110,16 +158,16 @@ const Home = () => {
             {keyStats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+                <Card key={index} className="card-africa text-center hover-scale">
                   <CardContent className="p-6">
                     <div className="flex justify-center mb-4">
-                      <div className="p-3 bg-gradient-to-r from-niger-green to-niger-orange rounded-full">
+                      <div className="p-3 gradient-africa rounded-full shadow-africa">
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-2">{stat.value}</h3>
                     <p className="text-muted-foreground mb-2">{stat.title}</p>
-                    <Badge variant="secondary" className="bg-niger-yellow/20 text-niger-green">
+                    <Badge variant="secondary" className="bg-secondary/20 text-secondary-foreground">
                       {stat.change}
                     </Badge>
                   </CardContent>
@@ -146,14 +194,18 @@ const Home = () => {
             {regions.map((region, index) => {
               const Icon = region.icon;
               return (
-                <Card key={index} className="hover:shadow-lg transition-all hover:scale-105 cursor-pointer">
+                <Card 
+                  key={index} 
+                  className="card-africa hover-scale cursor-pointer group"
+                  onClick={() => navigate('/explorer?region=' + region.name)}
+                >
                   <CardContent className="p-4 text-center">
                     <div className="flex justify-center mb-3">
-                      <div className="p-2 bg-gradient-to-r from-niger-green to-niger-orange rounded-lg">
+                      <div className="p-2 gradient-africa rounded-lg shadow-sm group-hover:shadow-md transition-smooth">
                         <Icon className="h-5 w-5 text-white" />
                       </div>
                     </div>
-                    <h3 className="font-semibold text-foreground mb-1">{region.name}</h3>
+                    <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">{region.name}</h3>
                     <p className="text-sm text-muted-foreground">{region.population} hab.</p>
                   </CardContent>
                 </Card>
@@ -164,21 +216,32 @@ const Home = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-niger-green to-niger-orange">
+      <section className="py-16 gradient-africa">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Prêt à explorer les données du Niger ?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Commencez votre recherche maintenant et découvrez des insights sur le développement, 
-            l'économie et la société nigérienne.
+            Découvrez des insights sur le développement, l'économie et la société nigérienne 
+            grâce à nos outils d'analyse avancés et nos visualisations interactives.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="sahel" size="lg" className="px-8 py-3 text-lg">
+            <Button 
+              size="lg" 
+              className="px-8 py-3 text-lg bg-white text-primary hover:bg-white/90 shadow-lg transition-smooth"
+              onClick={() => navigate('/explorer')}
+            >
+              <Search className="h-5 w-5 mr-2" />
               Commencer l'exploration
             </Button>
-            <Button variant="outline" size="lg" className="px-8 py-3 text-lg bg-white/10 border-white/30 text-white hover:bg-white/20">
-              Voir les indicateurs
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="px-8 py-3 text-lg bg-white/10 border-white/30 text-white hover:bg-white/20 transition-smooth"
+              onClick={() => navigate('/dashboard')}
+            >
+              <BarChart3 className="h-5 w-5 mr-2" />
+              Voir le tableau de bord
             </Button>
           </div>
         </div>

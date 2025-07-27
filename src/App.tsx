@@ -12,6 +12,7 @@ import Results from "./pages/Results";
 import Dashboard from "./pages/Dashboard";
 import DataExplorer from "./pages/DataExplorer";
 import DataStories from "./pages/DataStories";
+import Datasets from "./pages/Datasets";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/explorer" element={<DataExplorer />} />
+            <Route path="/datasets" element={<Datasets />} />
             <Route path="/data-stories" element={<DataStories />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/about" element={<About />} />

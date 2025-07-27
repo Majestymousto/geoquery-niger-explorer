@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Results from "./pages/Results";
 import Dashboard from "./pages/Dashboard";
+import DataExplorer from "./pages/DataExplorer";
+import DataStories from "./pages/DataStories";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,9 +26,11 @@ const App = () => (
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/explorer" element={<DataExplorer />} />
+            <Route path="/data-stories" element={<DataStories />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/about" element={<About />} />
             <Route path="/results" element={<Results />} />
-            <Route path="/dashboard" element={<Dashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
